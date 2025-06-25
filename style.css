@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", monospace;
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+}
+
+/* === Default Terminal Layout === */
+.terminal {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.output {
+  overflow-y: auto;
+  flex-grow: 1;
+  white-space: pre;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  margin-right: 10px;
+}
+
+#input {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  color: inherit;
+}
+
+/* === THEMES === */
+body.matrix {
+  background: #000;
+  color: #33ff33;
+}
+
+body.dark {
+  background: #121212;
+  color: #eeeeee;
+}
+
+body.light {
+  background: #f4f4f4;
+  color: #111111;
+}
+
+body.blue {
+  background: #0a0f2c;
+  color: #00d9ff;
+}
+
+body.red {
+  background: #2c0000;
+  color: #ff4c4c;
+}
+
+body.yellow {
+  background: #2c2c00;
+  color: #fff94c;
+}
+
+body.galaxy {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: #8ecae6;
+}

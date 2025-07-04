@@ -30,9 +30,10 @@ body {
 
 .prompt {
   margin-right: 10px;
+  padding-top: 0.2em; /* Ajuste para alinear mejor con la primera línea del textarea */
 }
 
-#input {
+#input { /* Ahora es un textarea */
   background: transparent;
   border: none;
   font-family: inherit;
@@ -40,40 +41,90 @@ body {
   outline: none;
   width: 100%;
   color: inherit;
+  resize: none; /* Evitar redimensionamiento manual */
+  overflow-y: auto; /* Scroll si excede max-height */
+  line-height: 1.4; /* Espaciado de línea para legibilidad */
+  padding: 0; /* Evitar padding interno que desalinee */
+  /* max-height se controlará por JS o se puede poner un valor por defecto aquí si se desea */
 }
 
+.input-line {
+  display: flex;
+  align-items: flex-start; /* Alinear con la parte superior del textarea */
+}
+
+
 /* === THEMES === */
+
+/* Estilos base para mensajes, pueden ser sobreescritos por temas */
+.line {
+  /* margin-bottom: 4px; /* Pequeño espacio entre líneas */
+  /* padding: 2px 0; */
+}
+
+.user-message {
+  /* color: #87CEFA; /* LightSkyBlue - ejemplo, ajustar por tema */
+}
+
+.ai-message {
+ /* color: #90EE90; /* LightGreen - ejemplo, ajustar por tema */
+}
+
+.system-message {
+  /* color: #FFD700; /* Gold - ejemplo, para errores o info del sistema */
+  /* font-style: italic; */
+}
+
+
 body.matrix {
   background: #000;
   color: #33ff33;
 }
+body.matrix .user-message { color: #8eff8e; } /* Un verde ligeramente más claro para el usuario */
+body.matrix .system-message { color: #ffff00; font-style: italic; } /* Amarillo para sistema */
+
 
 body.dark {
   background: #121212;
   color: #eeeeee;
 }
+body.dark .user-message { color: #bb86fc; } /* Morado claro de Material Design Dark */
+body.dark .ai-message { color: #03dac6; } /* Teal de Material Design Dark */
+body.dark .system-message { color: #cf6679; font-style: italic; } /* Rojo claro para errores en Dark */
 
 body.light {
   background: #f4f4f4;
   color: #111111;
 }
+body.light .user-message { color: #0000ff; } /* Azul para usuario */
+body.light .ai-message { color: #006400; } /* Verde oscuro para IA */
+body.light .system-message { color: #ff8c00; font-style: italic; } /* Naranja oscuro para sistema */
+
 
 body.blue {
   background: #0a0f2c;
-  color: #00d9ff;
+  color: #00d9ff; /* Color principal para la IA */
 }
+body.blue .user-message { color: #ffffff; } /* Blanco para el usuario */
+body.blue .system-message { color: #ffcc00; font-style: italic; } /* Amarillo para sistema */
 
 body.red {
   background: #2c0000;
-  color: #ff4c4c;
+  color: #ff4c4c; /* Color principal para la IA */
 }
+body.red .user-message { color: #ffc0cb; } /* Rosa claro para el usuario */
+body.red .system-message { color: #ffa500; font-style: italic; } /* Naranja para sistema */
 
 body.yellow {
   background: #2c2c00;
-  color: #fff94c;
+  color: #fff94c; /* Color principal para la IA */
 }
+body.yellow .user-message { color: #ffffff; } /* Blanco para el usuario */
+body.yellow .system-message { color: #ff8c00; font-style: italic; } /* Naranja oscuro para sistema */
 
 body.galaxy {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  color: #8ecae6;
+  color: #8ecae6; /* Color principal para la IA */
 }
+body.galaxy .user-message { color: #e0fbfc; } /* Un cyan muy claro para el usuario */
+body.galaxy .system-message { color: #fca311; font-style: italic; } /* Naranja para sistema */
